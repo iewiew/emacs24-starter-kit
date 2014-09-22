@@ -5,6 +5,14 @@
 ;; This is the first thing to get loaded.
 ;;
 
+(set-default 'server-socket-dir "~/.emacs.d/server")
+(server-start)
+
+(load "~/.emacs.d/maxframe.el")
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+
+
 ;; load Org-mode from source when the ORG_HOME environment variable is set
 (when (getenv "ORG_HOME")
   (let ((org-lisp-dir (expand-file-name "lisp" (getenv "ORG_HOME"))))
